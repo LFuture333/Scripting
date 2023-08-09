@@ -11,6 +11,7 @@ class ScrapeThread(threading.Thread):
     def run(self):
         driver = webdriver.Chrome()
         driver.get(self.url)
+       
         page_source = driver.page_source
         input("test continue")
         driver.close

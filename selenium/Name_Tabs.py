@@ -26,5 +26,6 @@ driver.execute_script("window.open('about:blank', '3tab');")
 driver.switch_to.window("3tab")
 driver.get('http://www.amazon.com')
 
-
-input( " DOne PRogram")
+while driver
+   test = input( " DOne PRogram")
+   print("TEST")
