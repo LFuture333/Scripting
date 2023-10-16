@@ -10,13 +10,17 @@ s.listen(5)
 
 c, addr = s.accept()
 
+
+print(c)
+print(addr)
+
 while True:
     rcvdData = c.recv(1024).decode()
 
     print("Incoming Data: " + str(rcvdData))
     sendData = input("N: ")
     
-    c.send(sendData.encode)
+    c.send(sendData.encode())
     if(sendData == "Bye" or sendData == "bye"):
         break
         
