@@ -23,7 +23,7 @@ if __name__ == "__main__":
     print("Server open at " + str(host) + ":" + str(port))
 
 
-    server.listen(0)
+    server.listen(1)
     while True:
         
         conn , client_address = server.accept()
