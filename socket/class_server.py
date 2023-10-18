@@ -12,7 +12,7 @@ class Server:
 
 
     # Declaring IP address & Port  
-    ip = "127.0.0.1"
+    ip = "192.168.0.16"
     port = 100
 
     def __init__(self):
@@ -38,7 +38,13 @@ class Server:
             while True:
                 data = self.clientsocket.recv(1024).decode()
                 time.sleep(0.001)
-                print(data)
+                print(len(data))
+
+
+                if (len(data) == 0):
+                    print("The length of the data equals 0 (Socket is closing) ")
+                    self.server.close()
+                    sys.exit()
         
         except KeyboardInterrupt:
             

@@ -11,7 +11,7 @@ class Client():
 
     def __init__(self):
         while True: 
-            self.server_ip = "127.0.0.1"
+            self.server_ip = "192.168.0.16"
             self.server_port = 100
 
             if (len(self.server_ip.split('.')) <4):
@@ -21,26 +21,14 @@ class Client():
         time.sleep(1)
 
 
-    @property
     def make_connection(self):
         #Sendign connection request to the server node
-        while True:
-            try:
-                server = (self.server_ip, self.server_port)
-                self.client_socket.connect(server)
-                print('Connection has been establish with server')
-                return True
+        server = (self.server_ip, self.server_port)
+        self.client_socket.connect(server)
+        print('Connection has been establish with server')
+                
 
-            except:
-                print('..');time.sleep(0.1)
-                print('..'*2);time.sleep(0.1)
-                print('..'*6);time.sleep(0.1)
-                if (platform.system.lower().startswith('win')):
-                    os.system('cls')
-                    continue
-
-                os.system('clear')
-
+       
     def Send_Data(self):
         count = 0
         try:
@@ -59,4 +47,5 @@ class Client():
 if __name__ == "__main__":
     client = Client();
     
+    client.make_connection()
     client.Send_Data()
