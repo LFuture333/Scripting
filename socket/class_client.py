@@ -36,7 +36,7 @@ class Client():
 
                 count = count + 1
                 self.client_socket.send(str(count).encode())
-                time.sleep(0.001)
+                time.sleep(0.005)
 
        
         except KeyboardInterrupt:
