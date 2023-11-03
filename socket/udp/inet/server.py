@@ -1,7 +1,22 @@
 import socket
+import  time
 
-https://stackoverflow.com/questions/61448823/how-to-handle-udp-socket-clients-in-python
+server_address = ('192.168.0.2', 100)
+timeout = 30
+maximum = 5
 
-https://www.studytonight.com/network-programming-in-python/working-with-udp-sockets
 
-https://akuchhattri14.medium.com/basics-of-socket-programming-in-python-using-udp-protocol-4e08386a6d75
+
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+
+
+s.bind(server_address)
+
+clients = dict()
+
+while True:
+    data, address = s.recvfrom(1024)
+
+    print('Received from ' + str(address) + ': ' + str(data))
+    time.sleep(0.5)
