@@ -27,8 +27,8 @@ class Client():
 
     def make_connection(self):
         #Sendign connection request to the server node
-        server = (self.server_ip, self.server_port)
-        self.client_socket.connect(server)
+        self.server = (self.server_ip, self.server_port)
+        self.client_socket.connect(self.server)
         print('Connection has been establish with server')
                 
 
@@ -38,13 +38,9 @@ class Client():
         try:
             while True: 
 
-                count = count + 1
-                self.client_socket.send(str(count).encode())
-                time.sleep(0.125)
-                if(count == 100):
-                    break
-
-       
+                data = self.client_socket.recv(1024).decode()
+                print(data)
+                       
         except KeyboardInterrupt:
             
             self.client_socket.close()

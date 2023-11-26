@@ -12,7 +12,7 @@ class Server:
 
 
     # Declaring IP address & Port  
-    ip = "192.168.0.16"
+    ip = "192.168.0.2"
     port = 100
 
     def __init__(self):
